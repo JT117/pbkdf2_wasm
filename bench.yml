@@ -1,0 +1,10 @@
+concurrency: 10
+base: 'http://localhost:9000'
+iterations: 500
+rampup: 60
+
+plan:
+  - name: hello 
+    request:
+      url: http://10.26.83.190:8080/
+

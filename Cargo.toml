@@ -1,0 +1,23 @@
+[package]
+name = "hello_world"
+version = "0.1.0"
+authors = [ "" ]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "hello_world"
+
+[dependencies]
+futures = "0.3"
+pbkdf2 = { version = "0.12", features = ["simple"] }
+wasmbus-rpc = { version = "0.15.0", features = ["otel"] }
+wasmcloud-interface-httpserver = "0.12.0"
+#wasmcloud-interface-logging = "0.11.0"
+#tracing = "0.1.40"
+
+[profile.release]
+# Optimize for small code size
+lto = true
+opt-level = 3
+strip = true
